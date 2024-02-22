@@ -1,0 +1,40 @@
+{
+  "headers": [
+    {
+      "source": "/(.*).(ttf|otf|woff2)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=63072000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).(png|jpg|jpeg|svg)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, s-maxage=63072000, max-age=63072000"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).(css)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, s-maxage=63072000, max-age=63072000"
+        }
+      ]
+    },
+    {
+      "source": "(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, s-maxage=63072000, max-age=63072000"
+        }
+      ]
+    }
+  ]
+}
