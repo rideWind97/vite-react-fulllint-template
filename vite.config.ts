@@ -1,7 +1,6 @@
 import path from 'path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { Plugin as importToCDN } from 'vite-plugin-cdn-import'
 import { visualizer } from 'rollup-plugin-visualizer'
 import viteImagemin from 'vite-plugin-imagemin'
 import viteCompression from 'vite-plugin-compression'
@@ -16,17 +15,6 @@ export default defineConfig({
   plugins: [
     react(),
     visualizer() as any,
-    importToCDN({
-      modules: [
-        {
-          name: 'antd',
-          var: 'antd',
-          path: 'https://unpkg.com/antd@5.14.1/dist/antd.min.js'
-          // 根据自己的版本号找到对应的CDN网址
-          // css: 'https://unpkg.com/@arco-design/web-vue@2.47.1/dist/arco.css'
-        }
-      ]
-    }),
     viteCompression({
       verbose: true,
       disable: false,
