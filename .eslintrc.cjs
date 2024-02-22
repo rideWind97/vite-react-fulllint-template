@@ -1,35 +1,32 @@
 module.exports = {
-  root: true,
-  env: { browser: true, es2023: true },
+  env: {
+    browser: true,
+    es2021: true,
+    node: true
+  },
   extends: [
+    'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
-    'plugin:react-hooks/recommended',
-    'eslint-config-mature/prettier', // 主要用于格式化模板，优先级应更低
-    'eslint-config-mature',
-    'eslint-config-mature/ts',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+    'plugin:react/jsx-runtime'
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  overrides: [],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: "latest",
-    ecmaFeatures: {
-      "jsx": true
-    },
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
+    ecmaVersion: 'latest',
+    sourceType: 'module'
   },
-  plugins: ['react', 'react-refresh'],
+  plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
+    'prettier/prettier': 'error',
+    'arrow-body-style': 'off',
+    'prefer-arrow-callback': 'off',
+    'no-debugger': 'off'
   },
-  "settings": {
-    "react": {
-      "version": "detect"
+  settings: {
+    react: {
+      version: 'detect'
     }
   }
 }
